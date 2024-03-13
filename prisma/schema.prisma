@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model emergencias {
+  id                 Int             @id @default(autoincrement())
+  fecha              DateTime?       @db.Timestamp(6)
+  paciente_id        Int?
+  personal_medico_id Int?
+  medico_id          Int?
+  descripcion        String?
+  severidad          String?         @db.VarChar(50)
+  medico             medico?         @relation(fields: [medico_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  pacientes          pacientes?      @relation(fields: [paciente_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  personalmedico     personalmedico? @relation(fields: [personal_medico_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tratamientos       tratamientos[]
+}
+
+model medico {
+  id           Int           @id @default(autoincrement())
+  nombre       String?       @db.VarChar(100)
+  especialidad String?       @db.VarChar(100)
+  telefono     String?       @db.VarChar(20)
+  direccion    String?       @db.VarChar(200)
+  emergencias  emergencias[]
+}
+
+model pacientes {
+  id               Int           @id @default(autoincrement())
+  nombre           String?       @db.VarChar(100)
+  edad             Int?
+  genero           String?       @db.VarChar(10)
+  direccion        String?       @db.VarChar(200)
+  telefono         String?       @db.VarChar(20)
+  historial_medico String?
+  emergencias      emergencias[]
+}
+
+model personalmedico {
+  id           Int           @id @default(autoincrement())
+  nombre       String?       @db.VarChar(100)
+  especialidad String?       @db.VarChar(100)
+  telefono     String?       @db.VarChar(20)
+  direccion    String?       @db.VarChar(200)
+  emergencias  emergencias[]
+}
+
+model tratamientos {
+  id            Int          @id @default(autoincrement())
+  emergencia_id Int?
+  descripcion   String?
+  medicamentos  String?
+  instrucciones String?
+  emergencias   emergencias? @relation(fields: [emergencia_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
