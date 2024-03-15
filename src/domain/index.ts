@@ -32,3 +32,15 @@ export * from './use-cases/personalMedico/get-personalMedico';
 export * from './use-cases/personalMedico/delete-personalMedico';
 export * from './use-cases/personalMedico/get-personalMedicos';
 
+export * from './datasources/emergencia.datasource';
+export * from './dtos';
+export * from './entities/emergencia.entity';
+export * from './repositories/emergencia.repository';
+
+export * from './use-cases/emergencia/create-emergencia';
+export * from './use-cases/emergencia/update-emergencia';
+export * from './use-cases/emergencia/get-emergencia';
+export * from './use-cases/emergencia/delete-emergencia';
+export * from './use-cases/emergencia/get-emergencias';
+
+

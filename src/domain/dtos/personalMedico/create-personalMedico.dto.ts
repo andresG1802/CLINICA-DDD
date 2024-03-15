@@ -18,6 +18,7 @@ export class CreatePersonalMedicoDto {
       if ( !especialidad ) return ['especialidad property is required', undefined];
       if ( !telefono ) return ['telefono property is required', undefined];
       if ( !direccion ) return ['direccion property is required', undefined];
+      
       return [undefined, new CreatePersonalMedicoDto(nombre,especialidad,telefono,direccion)];
     }
   

@@ -8,3 +8,6 @@ export * from './pacientes/update-paciente.dto';
 
 export * from './personalMedico/create-personalMedico.dto';
 export * from './personalMedico/update-personalMedico.dto';
+
+export * from './emergencia/create-emergencia.dto';
+export * from './emergencia/update-emergencia.dto';
