@@ -21,5 +21,4 @@ export class CreateMedicoDto {
     return [undefined, new CreateMedicoDto(nombre,especialidad,telefono,direccion)];
   }
 
-
 }
