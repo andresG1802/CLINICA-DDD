@@ -43,4 +43,14 @@ export * from './use-cases/emergencia/get-emergencia';
 export * from './use-cases/emergencia/delete-emergencia';
 export * from './use-cases/emergencia/get-emergencias';
 
+export * from './datasources/tratamiento.datasource';
+export * from './dtos';
+export * from './entities/tratamiento.entity';
+export * from './repositories/tratamiento.repository';
+
+export * from './use-cases/tratamiento/create-tratamiento';
+export * from './use-cases/tratamiento/update-tratamiento';
+export * from './use-cases/tratamiento/get-tratamiento';
+export * from './use-cases/tratamiento/delete-tratamiento';
+export * from './use-cases/tratamiento/get-tratamientos';
 

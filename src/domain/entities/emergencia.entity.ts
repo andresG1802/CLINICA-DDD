@@ -14,7 +14,19 @@ export class EmergenciaEntity{
             descripcion,severidad} = object;
 
         if(!id) throw 'Id is required';
-        if(!fecha) throw 'fecha is required';
+        if(fecha)
+        {
+            let newFecha = new Date(fecha);
+            if(isNaN(newFecha.getTime()))
+            {
+                throw 'Fecha is not a valid date'
+            }
+        }
+        else
+        {
+            throw 'fecha is required';
+        }
+
         if(!paciente_id) throw 'paciente_id is required';
         if(!personal_medico_id) throw 'personal_medico_id is required';
         if(!medico_id) throw 'descripcion is required';

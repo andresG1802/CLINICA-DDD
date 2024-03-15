@@ -30,7 +30,15 @@ export class UpdateEmergenciaDto{
           return ['id must be a valid number'];
         }
         //Completar fecha
-    
+        if(fecha)
+        {
+            let newFecha = new Date(fecha);
+            if(newFecha.toString()=== 'Invalid Date')
+            {
+                return['Fecha must be a valid date']
+            }
+        }
+
         return [undefined, new UpdateEmergenciaDto(id,fecha,paciente_id,
             personal_medico_id,medico_id,descripcion,severidad)];
     }
