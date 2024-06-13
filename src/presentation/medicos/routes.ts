@@ -27,7 +27,5 @@ export class MedicoRoutes {
 
     return router;
   }
-
-
 }
 

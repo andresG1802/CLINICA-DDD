@@ -77,10 +77,16 @@ export class MedicosController {
     ( deleted ) 
       ? res.json( deleted )
       : res.status(400).json({ error: `Todo with id ${ id } not found` });
-    
-
   }
-  
+  public login = async (req: Request, res: Response) => {
+    const { nombre, password } = req.body;
+    
+    const medico = await prisma.medico.findFirst({
+      where: { nombre }
+    });
 
-
+    if (!medico) {
+      return res.status(401).json({ error: 'Usuario no reconocido' });
+    }
+  }
 }
