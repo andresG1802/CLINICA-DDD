@@ -4,12 +4,14 @@ export class MedicoEntity {
         public nombre: string,
         public especialidad:string,
         public telefono:string,
-        public direccion:string
+        public direccion:string,
+        public nombreUsuario:string,
+        public password:string
     ){}
 
     public static fromObject( object: {[key:string]:any})
     {
-        const {id,nombre,especialidad,telefono,direccion} = object;
+        const {id,nombre,especialidad,telefono,direccion,nombreUsuario,password} = object;
 
         if(!id) throw 'Id is required';
         if(!nombre) throw 'nombre is required';
@@ -17,7 +19,7 @@ export class MedicoEntity {
         if(!telefono) throw 'telefono is required';
         if(!direccion) throw 'direccion is required';
 
-        return new MedicoEntity(id,nombre,especialidad,telefono,direccion)
+        return new MedicoEntity(id,nombre,especialidad,telefono,direccion,nombreUsuario,password)
     }
 
 }

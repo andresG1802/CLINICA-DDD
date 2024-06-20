@@ -6,6 +6,7 @@ import { PersonalMedicoRoutes } from './personalMedicos/routes';
 import { EmergenciaRoutes } from './emergencias/routes';
 import { TratamientoRoutes } from './tratamientos/routes';
 import { AuthRoutes } from './auth/routes';
+import { ServicesRoutes } from './Services/routes';
 
 
 
@@ -24,7 +25,7 @@ export class AppRoutes {
     router.use('/api/tratamientos',TratamientoRoutes.routes);
     
     router.use('/api/auth',AuthRoutes.routes)
-    
+    router.use('/api/services',ServicesRoutes.routes)
     return router;
   }
 

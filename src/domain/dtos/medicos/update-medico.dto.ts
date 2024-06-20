@@ -8,6 +8,8 @@ export class UpdateMedicoDto {
     public readonly especialidad?: string,
     public readonly telefono?: string,
     public readonly direccion?: string,
+    public readonly nombreUsuario?:string,
+    public readonly password?:string
   ){}
 
   get values() {
@@ -22,7 +24,7 @@ export class UpdateMedicoDto {
 
   static create( props: {[key:string]: any} ): [string?, UpdateMedicoDto?]  {
 
-    const { id, nombre, especialidad ,telefono,direccion } = props;
+    const { id, nombre, especialidad ,telefono,direccion , nombreUsuario,password} = props;
     
     if ( !id || isNaN( Number(id)) ) {
       return ['id must be a valid number'];
@@ -35,7 +37,7 @@ export class UpdateMedicoDto {
     //   }
     // }
 
-    return [undefined, new UpdateMedicoDto(id, nombre, especialidad,telefono,direccion)];
+    return [undefined, new UpdateMedicoDto(id, nombre, especialidad,telefono,direccion,nombreUsuario,password)];
   }
 
 

@@ -7,11 +7,13 @@ export class PacienteEntity {
         public direccion:string,
         public telefono:string,
         public historial_medico:string,
+        public nombreUsuario:string,
+        public password:string
     ){}
 
     public static fromObject( object: {[key:string]:any})
     {
-        const {id,nombre,edad,genero,direccion,telefono,historial_medico} = object;
+        const {id,nombre,edad,genero,direccion,telefono,historial_medico,nombreUsuario,password} = object;
 
         if(!id) throw 'Id is required';
         if(!nombre) throw 'nombre is required';
@@ -21,8 +23,10 @@ export class PacienteEntity {
         if ( !direccion ) throw 'nombre is required';
         if ( !telefono ) throw 'nombre is required';
         if ( !historial_medico ) throw 'nombre is required';
+        if ( !nombreUsuario ) throw 'nombre is required';
+        if ( !password ) throw 'nombre is required';
       
-        return new PacienteEntity(id,nombre,edad,genero,direccion,telefono,historial_medico)
+        return new PacienteEntity(id,nombre,edad,genero,direccion,telefono,historial_medico,nombreUsuario,password)
     }
 
 }

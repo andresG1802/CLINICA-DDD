@@ -27,6 +27,8 @@ model medico {
   especialidad String?       @db.VarChar(100)
   telefono     String?       @db.VarChar(20)
   direccion    String?       @db.VarChar(200)
+  nombreUsuario String       @db.VarChar(50)
+  password      String       @db.VarChar(100)
   emergencias  emergencias[]
 }
 
@@ -38,7 +40,10 @@ model pacientes {
   direccion        String?       @db.VarChar(200)
   telefono         String?       @db.VarChar(20)
   historial_medico String?
+  nombreUsuario    String        @db.VarChar(50)
+  password         String        @db.VarChar(100)
   emergencias      emergencias[]
+  tratamientos     tratamientos[]
 }
 
 model personalmedico {
@@ -53,8 +58,10 @@ model personalmedico {
 model tratamientos {
   id            Int          @id @default(autoincrement())
   emergencia_id Int?
+  paciente_id   Int?         
   descripcion   String?
   medicamentos  String?
   instrucciones String?
   emergencias   emergencias? @relation(fields: [emergencia_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  pacientes     pacientes?   @relation(fields: [paciente_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }

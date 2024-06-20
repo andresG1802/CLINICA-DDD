@@ -7,21 +7,25 @@ export class CreatePacienteDto {
       public readonly direccion:string,
       public readonly telefono:string,
       public readonly historial_medico:string,
+      public readonly nombreUsuario:string,
+      public readonly password:string
     ){}
   
   
     static create( props: {[key:string]: any} ): [string?, CreatePacienteDto?]  {
   
-      const { nombre,edad,genero,direccion,telefono,historial_medico } = props;
-  
+      const { nombre,edad,genero,direccion,telefono,historial_medico,nombreUsuario,password } = props;
+      
       if ( !nombre ) return ['nombre property is required', undefined];
       if ( !edad ) return ['especialidad property is required', undefined];
       if ( !genero ) return ['especialidad property is required', undefined];
       if ( !direccion ) return ['direccion property is required', undefined];
       if ( !telefono ) return ['telefono property is required', undefined];
       if ( !historial_medico ) return ['telefono property is required', undefined];
-      
-      return [undefined, new CreatePacienteDto(nombre,edad,genero,direccion,telefono,historial_medico)];
+      if(!nombreUsuario) return ['nombreUsuario property is required', undefined];
+      if(!password) return ['password property is required', undefined];
+
+      return [undefined, new CreatePacienteDto(nombre,edad,genero,direccion,telefono,historial_medico,nombreUsuario,password)];
     }
   
   }
