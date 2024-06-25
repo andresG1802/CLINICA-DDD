@@ -9,7 +9,7 @@ datasource db {
 
 model emergencias {
   id                 Int             @id @default(autoincrement())
-  fecha              DateTime?       @db.Timestamp(6)
+  fecha              DateTime?       @default(now()) @db.Timestamp(6)
   paciente_id        Int?
   personal_medico_id Int?
   medico_id          Int?
@@ -44,6 +44,7 @@ model pacientes {
   password         String        @db.VarChar(100)
   emergencias      emergencias[]
   tratamientos     tratamientos[]
+  dni              String   @db.VarChar(20)   // Nuevo campo
 }
 
 model personalmedico {

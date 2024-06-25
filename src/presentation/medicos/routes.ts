@@ -6,7 +6,6 @@ import { MedicoRepositoryImpl } from '../../infrastructure/repositories/medico.r
 
 export class MedicoRoutes {
 
-
   static get routes(): Router {
 
     const router = Router();

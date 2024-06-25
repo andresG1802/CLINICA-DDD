@@ -11,7 +11,8 @@ export class UpdatePacienteDto {
       public readonly telefono?:string,
       public readonly historial_medico?:string,
       public readonly nombreUsuario?:string,
-      public readonly password?:string
+      public readonly password?:string,
+      public readonly dni?:string,
     ){}
   
     get values() {
@@ -25,18 +26,19 @@ export class UpdatePacienteDto {
       if ( this.historial_medico ) returnObj.historial_medico = this.historial_medico;
       if ( this.nombreUsuario ) returnObj.telefono = this.nombreUsuario;
       if ( this.password ) returnObj.historial_medico = this.password;
+      if ( this.dni ) returnObj.dni = this.dni;
       return returnObj;
     }
   
   
     static create( props: {[key:string]: any} ): [string?, UpdatePacienteDto?]  {
   
-        const { id,nombre,edad,genero,direccion,telefono,historial_medico,nombreUsuario,password } = props;
+        const { id,nombre,edad,genero,direccion,telefono,historial_medico,nombreUsuario,password,dni} = props;
       if ( !id || isNaN( Number(id)) ) {
         return ['id must be a valid number'];
       }
   
-      return [undefined, new UpdatePacienteDto(id,nombre,edad,genero,direccion,telefono,historial_medico,nombreUsuario,password)];
+      return [undefined, new UpdatePacienteDto(id,nombre,edad,genero,direccion,telefono,historial_medico,nombreUsuario,password,dni)];
     }
   
   
