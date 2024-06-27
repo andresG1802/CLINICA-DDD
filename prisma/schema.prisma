@@ -27,8 +27,8 @@ model medico {
   especialidad String?       @db.VarChar(100)
   telefono     String?       @db.VarChar(20)
   direccion    String?       @db.VarChar(200)
-  nombreUsuario String       @db.VarChar(50)
-  password      String       @db.VarChar(100)
+  nombreUsuario String?       @db.VarChar(50)
+  password      String?       @db.VarChar(100)
   emergencias  emergencias[]
 }
 
@@ -40,8 +40,8 @@ model pacientes {
   direccion        String?       @db.VarChar(200)
   telefono         String?       @db.VarChar(20)
   historial_medico String?
-  nombreUsuario    String        @db.VarChar(50)
-  password         String        @db.VarChar(100)
+  nombreUsuario    String?        @db.VarChar(50)
+  password         String?        @db.VarChar(100)
   emergencias      emergencias[]
   tratamientos     tratamientos[]
   dni              String   @db.VarChar(20)   // Nuevo campo
@@ -53,6 +53,8 @@ model personalmedico {
   especialidad String?       @db.VarChar(100)
   telefono     String?       @db.VarChar(20)
   direccion    String?       @db.VarChar(200)
+  nombreUsuario String?       @db.VarChar(50)
+  password      String?       @db.VarChar(100)
   emergencias  emergencias[]
 }
 

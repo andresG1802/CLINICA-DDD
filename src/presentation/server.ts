@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 import path from 'path';
-
+import cors from 'cors'
 interface Options {
   port: number;
   routes: Router;
@@ -34,6 +34,9 @@ export class Server {
 
     //* Public Folder
     this.app.use( express.static( this.publicPath ) );
+
+    // * Middleware cors
+    this.app.use(cors());
 
 
     //* Routes

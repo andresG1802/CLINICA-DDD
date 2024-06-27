@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { login } from './controller';
+import { loginMedico, loginPaciente, loginPersonalMedico } from './controller';
 
 export class AuthRoutes {
 
@@ -7,7 +7,9 @@ export class AuthRoutes {
 
     const router = Router();
     
-    router.post('/',login );
+    router.post('/paciente',loginPaciente );
+    router.post('/medico',loginMedico );
+    router.post('/personalMedico',loginPersonalMedico );
 
     return router;
   }

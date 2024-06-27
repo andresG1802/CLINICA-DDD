@@ -5,7 +5,7 @@ export class TratamientoEntity{
         public descripcion   :string,
         public medicamentos  :string,
         public instrucciones :string,
-        public paciete_id:number,
+        public paciente_id:number,
     ){}
 
     public static fromObject( object: {[key:string]:any})

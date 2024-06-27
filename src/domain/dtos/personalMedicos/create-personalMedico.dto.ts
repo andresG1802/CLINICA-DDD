@@ -6,20 +6,24 @@ export class CreatePersonalMedicoDto {
       public readonly nombre: string,
       public readonly especialidad: string,
       public readonly telefono:string,
-      public readonly direccion:string  
+      public readonly direccion:string,
+      public readonly nombreUsuario:string,
+      public readonly password:string,  
     ){}
   
   
     static create( props: {[key:string]: any} ): [string?, CreatePersonalMedicoDto?]  {
   
-      const { nombre,especialidad,telefono,direccion } = props;
+      const { nombre,especialidad,telefono,direccion,nombreUsuario,password } = props;
   
       if ( !nombre ) return ['nombre property is required', undefined];
       if ( !especialidad ) return ['especialidad property is required', undefined];
       if ( !telefono ) return ['telefono property is required', undefined];
       if ( !direccion ) return ['direccion property is required', undefined];
+      if ( !nombreUsuario ) return ['nombreUsuario property is required', undefined];
+      if (!password) return['password property is required', undefined]
       
-      return [undefined, new CreatePersonalMedicoDto(nombre,especialidad,telefono,direccion)];
+      return [undefined, new CreatePersonalMedicoDto(nombre,especialidad,telefono,direccion,nombreUsuario,password)];
     }
   
   }
