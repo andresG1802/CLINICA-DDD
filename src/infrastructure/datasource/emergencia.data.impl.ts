@@ -8,7 +8,7 @@ export class EmergenciaDatasourceImpl implements EmergenciaDatasource{
         });
 
         return EmergenciaEntity.fromObject(Emergencia);
-    }
+    } 
     async getAll(): Promise<EmergenciaEntity[]> {
         const Emergencias = await prisma.emergencias.findMany();
 
